@@ -20,7 +20,7 @@ class Mano:
 
 
     def encontrar_manos(self, frame, dibujar=True):
-        img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convertir solo una vez
+        img_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         self.resultados = self.manos.process(img_rgb)
 
         if self.resultados.multi_hand_landmarks:
@@ -52,7 +52,7 @@ class Mano:
                 if dibujar:
                     cv2.circle(frame, (cx, cy), 5, (0, 0, 0), cv2.FILLED)
 
-            if x_lista and y_lista:  # Asegurar que no esté vacío
+            if x_lista and y_lista:
                 xmin, xmax = min(x_lista), max(x_lista)
                 ymin, ymax = min(y_lista), max(y_lista)
                 bbox = (xmin, xmax, ymin, ymax)
